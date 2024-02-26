@@ -1,0 +1,6 @@
+@ParentChildAccess3_HostAddress = http://localhost:5091
+
+GET {{ParentChildAccess3_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

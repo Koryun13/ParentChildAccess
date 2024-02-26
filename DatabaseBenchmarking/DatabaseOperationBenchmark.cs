@@ -27,7 +27,7 @@ namespace DatabaseBenchmarking
         {
             // Example: Benchmark a method that checks access
             // Make sure to adjust the method to match what you want to benchmark
-            bool hasAccess = _context.NodeRelations.Any(nr => nr.ChildNodeId == 14 && nr.ParentNodeId == 3);
+            bool hasAccess = _context.NodeRelations.Any(nr => nr.ChildNodeId == 10 && nr.ParentNodeId == 1);
             // Process the result if necessary
         }
     }

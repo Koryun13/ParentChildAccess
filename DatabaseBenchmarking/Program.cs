@@ -5,6 +5,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        BenchmarkRunner.Run<DatabaseOperationBenchmark>();
+        var summary = BenchmarkSwitcher.FromTypes(new[] {
+            typeof(DatabaseOperationBenchmark),
+            typeof(PathBasedAccessBenchmark)
+        }).Run();
     }
 }

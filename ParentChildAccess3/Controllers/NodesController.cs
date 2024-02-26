@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
-using ParentChildAccess2.Data;
-using ParentChildAccess2.Model;
+using ParentChildAccess3.Data;
+using ParentChildAccess3.Model;
 
 namespace ParentChildAccess.Controllers
 {

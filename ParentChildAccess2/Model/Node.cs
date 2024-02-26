@@ -5,11 +5,10 @@ namespace ParentChildAccess2.Model
 {
     public class Node
     {
-        [Key]
         public int NodeId { get; set; }
-
-        public string? Name { get; set; }
+        public string Name { get; set; }
+        public string Path { get; set; } 
     }
 
-    
+
 }
