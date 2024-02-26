@@ -7,7 +7,8 @@ class Program
     {
         var summary = BenchmarkSwitcher.FromTypes(new[] {
             typeof(DatabaseOperationBenchmark),
-            typeof(PathBasedAccessBenchmark)
+            typeof(PathBasedAccessBenchmark),
+            typeof(ClosureTableAccessBenchmark)
         }).Run();
     }
 }

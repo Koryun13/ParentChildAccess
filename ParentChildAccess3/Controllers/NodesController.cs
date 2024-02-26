@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using ParentChildAccess3.Data;
 using ParentChildAccess3.Model;
 
-namespace ParentChildAccess.Controllers
+namespace ParentChildAccess3.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -28,38 +28,22 @@ namespace ParentChildAccess.Controllers
             return node;
         }
 
-        // Adapted to use the corrected AddNodeAsync method
+        // Assuming this method is updated to correctly add nodes and their relationships
         [HttpPost]
-        public async Task<ActionResult<Node>> CreateNode(int nodeId, int? parentId)
+        public async Task<ActionResult<Node>> CreateNode(Node node)
         {
-            Node newNode;
-            try
-            {
-                await _context.AddNodeAsync(nodeId, parentId);
-                newNode = await _context.Nodes.FindAsync(nodeId);
-            }
-            catch (ArgumentException ex)
-            {
-                return NotFound(ex.Message);
-            }
-
-            return CreatedAtAction(nameof(GetNode), new { id = newNode.NodeId }, newNode);
+            // Adjust this method to add a node and its corresponding closure table entries
+            _context.Nodes.Add(node);
+            await _context.SaveChangesAsync();
+            return CreatedAtAction(nameof(GetNode), new { id = node.NodeId }, node);
         }
 
-        // Updated CheckAccess method to utilize the materialized path
+        // Updated CheckAccess method to utilize NodeClosure table
         [HttpGet("{nodeId}/access/{parentId}")]
-        public async Task<ActionResult<bool>> CheckAccess(int nodeId, int parentId)
+        public ActionResult<bool> CheckAccess(int nodeId, int parentId)
         {
-            var childNode = await _context.Nodes.FindAsync(nodeId);
-            var parentNode = await _context.Nodes.FindAsync(parentId);
-
-            if (childNode == null || parentNode == null)
-            {
-                return NotFound("One or both of the nodes not found.");
-            }
-
-            // Check if the child's path starts with the parent's path
-            bool hasAccess = childNode.Path.StartsWith(parentNode.Path);
+            // Check if an entry exists in the NodeClosure table with the given ancestor and descendant
+            var hasAccess = _context.NodeClosures.Any(nc => nc.AncestorId == parentId && nc.DescendantId == nodeId);
             return hasAccess;
         }
 
