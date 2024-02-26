@@ -1,14 +1,14 @@
 ﻿using BenchmarkDotNet.Attributes;
 using Microsoft.EntityFrameworkCore;
-using ParentChildAccess3.Data; // Update namespace to match your project
-using ParentChildAccess3.Model; 
+using ParentChildAccess.Data; // Ensure this matches your actual namespace
+using ParentChildAccess.Model; // Ensure this matches your actual namespace
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace DatabaseBenchmarking
 {
     [MemoryDiagnoser]
-    public class ClosureTableAccessBenchmark
+    public class NestedSetsAccessBenchmark // Renamed to reflect the focus on Nested Sets
     {
         private ApplicationDbContext _context;
 
@@ -16,7 +16,7 @@ namespace DatabaseBenchmarking
         public async Task Setup()
         {
             var options = new DbContextOptionsBuilder<ApplicationDbContext>()
-                .UseSqlServer("Server=.;Database=NodeDb3;Trusted_Connection=True;TrustServerCertificate=True")
+                .UseSqlServer("Server=.;Database=NodeDb;Trusted_Connection=True;TrustServerCertificate=True")
                 .Options;
 
             _context = new ApplicationDbContext(options);
@@ -28,12 +28,12 @@ namespace DatabaseBenchmarking
         [Benchmark]
         public bool CheckAccessBenchmark()
         {
-            // Query the NodeClosure table to check for access between two nodes
-            bool hasAccess = _context.NodeClosures
-                .AsNoTracking()
-                .Any(nc => nc.AncestorId == 1 && nc.DescendantId == 20); // Example ancestor and descendant
-
-            return hasAccess;
+            return _context.Nodes.AsNoTracking().Any(n =>
+                _context.Nodes.AsNoTracking().Any(a => a.NodeId == 1 && a.Left < n.Left && a.Right > n.Right) &&
+                n.NodeId == 20
+            );
         }
+
+
     }
 }

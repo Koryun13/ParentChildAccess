@@ -29,7 +29,7 @@ namespace DatabaseBenchmarking
             // Efficiently fetch only the Path property
             string? childPath = _context.Nodes
                 .AsNoTracking()
-                .Where(n => n.NodeId == 10)
+                .Where(n => n.NodeId == 20)
                 .Select(n => n.Path)
                 .FirstOrDefault();
 

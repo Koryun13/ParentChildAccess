@@ -29,14 +29,6 @@ namespace ParentChildAccess3.Controllers
         }
 
         // Assuming this method is updated to correctly add nodes and their relationships
-        [HttpPost]
-        public async Task<ActionResult<Node>> CreateNode(Node node)
-        {
-            // Adjust this method to add a node and its corresponding closure table entries
-            _context.Nodes.Add(node);
-            await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetNode), new { id = node.NodeId }, node);
-        }
 
         // Updated CheckAccess method to utilize NodeClosure table
         [HttpGet("{nodeId}/access/{parentId}")]

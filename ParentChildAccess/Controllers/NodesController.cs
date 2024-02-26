@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ParentChildAccess.Data;
-using ParentChildAccess.Model;
+using ParentChildAccess.Data; // Update namespace to match your project
+using ParentChildAccess.Model; // Ensure correct namespace
 using System.Linq;
-using System.Threading.Tasks; // Added for async support
+using System.Threading.Tasks;
 
-namespace ParentChildAccess.Controllers
+namespace ParentChildAccess3.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -31,38 +31,32 @@ namespace ParentChildAccess.Controllers
         [HttpPost]
         public async Task<ActionResult<Node>> CreateNode(Node node)
         {
+            // Implementation would need to calculate and set Left and Right values based on the desired position in the tree
+            // This is a placeholder implementation
             _context.Nodes.Add(node);
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetNode), new { id = node.NodeId }, node);
         }
 
-        [HttpPost("{parentId}/children")]
-        public async Task<ActionResult<NodeRelation>> AddChild(int parentId, NodeRelation relation)
-        {
-            var parentNode = _context.Nodes.Find(parentId);
-            if (parentNode == null)
-            {
-                return NotFound();
-            }
-
-            // Use the new AddNodeRelationAsync method
-            await _context.AddNodeRelationAsync(parentId, relation.ChildNodeId);
-
-            // Since AddNodeRelationAsync handles adding the relation, no need to add again
-            // Just return the result
-            return CreatedAtAction(nameof(GetNode), new { id = relation.ChildNodeId }, relation);
-        }
+        // This method is no longer relevant in the same way for Nested Sets and has been removed.
+        // Implementing node addition in Nested Sets requires recalculating Left and Right values for affected nodes.
 
         [HttpGet("{nodeId}/access/{parentId}")]
         public ActionResult<bool> CheckAccess(int nodeId, int parentId)
         {
-            var relation = _context.NodeRelations.FirstOrDefault(r => r.ChildNodeId == nodeId && r.ParentNodeId == parentId);
-            return relation != null;
+            // In Nested Sets, check if a node is a descendant by comparing Left and Right values
+            var parentNode = _context.Nodes.Find(parentId);
+            var childNode = _context.Nodes.Find(nodeId);
+
+            if (parentNode == null || childNode == null)
+            {
+                return NotFound("One or both of the nodes not found.");
+            }
+
+            bool hasAccess = childNode.Left > parentNode.Left && childNode.Right < parentNode.Right;
+            return hasAccess;
         }
 
-        private bool NodeExists(int id)
-        {
-            return _context.Nodes.Any(e => e.NodeId == id);
-        }
+        // Additional methods as needed...
     }
 }
