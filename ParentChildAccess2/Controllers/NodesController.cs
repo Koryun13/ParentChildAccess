@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ParentChildAccess.Data;
-using ParentChildAccess.Model;
+using ParentChildAccess2.Data;
+using ParentChildAccess2.Model;
 using System.Linq;
 using System.Threading.Tasks; // Added for async support
 

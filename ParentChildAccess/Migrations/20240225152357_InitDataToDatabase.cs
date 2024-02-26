@@ -7,7 +7,7 @@
 namespace ParentChildAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class InitTableData : Migration
+    public partial class InitDataToDatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,7 +18,7 @@ namespace ParentChildAccess.Migrations
                 {
                     NodeId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -100,7 +100,61 @@ namespace ParentChildAccess.Migrations
                     { 16, 17, 8 },
                     { 17, 18, 9 },
                     { 18, 19, 9 },
-                    { 19, 20, 10 }
+                    { 19, 20, 10 },
+                    { 20, 4, 1 },
+                    { 21, 5, 1 },
+                    { 22, 6, 1 },
+                    { 23, 7, 1 },
+                    { 24, 8, 1 },
+                    { 25, 9, 1 },
+                    { 26, 10, 1 },
+                    { 27, 11, 1 },
+                    { 28, 6, 2 },
+                    { 29, 7, 2 },
+                    { 30, 8, 2 },
+                    { 31, 9, 2 },
+                    { 32, 10, 2 },
+                    { 33, 11, 2 },
+                    { 34, 8, 3 },
+                    { 35, 9, 3 },
+                    { 36, 10, 3 },
+                    { 37, 11, 3 },
+                    { 38, 12, 3 },
+                    { 39, 13, 3 },
+                    { 40, 14, 3 },
+                    { 41, 15, 3 },
+                    { 42, 10, 4 },
+                    { 43, 11, 4 },
+                    { 44, 12, 4 },
+                    { 45, 13, 4 },
+                    { 46, 14, 4 },
+                    { 47, 15, 4 },
+                    { 48, 16, 4 },
+                    { 49, 17, 4 },
+                    { 50, 12, 5 },
+                    { 51, 13, 5 },
+                    { 52, 14, 5 },
+                    { 53, 15, 5 },
+                    { 54, 16, 5 },
+                    { 55, 17, 5 },
+                    { 56, 18, 5 },
+                    { 57, 19, 5 },
+                    { 58, 14, 6 },
+                    { 59, 15, 6 },
+                    { 60, 16, 6 },
+                    { 61, 17, 6 },
+                    { 62, 18, 6 },
+                    { 63, 19, 6 },
+                    { 64, 20, 6 },
+                    { 65, 16, 7 },
+                    { 66, 17, 7 },
+                    { 67, 18, 7 },
+                    { 68, 19, 7 },
+                    { 69, 20, 7 },
+                    { 70, 18, 8 },
+                    { 71, 19, 8 },
+                    { 72, 20, 8 },
+                    { 73, 20, 9 }
                 });
 
             migrationBuilder.CreateIndex(

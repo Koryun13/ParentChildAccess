@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ParentChildAccess.Model;
+using ParentChildAccess2.Model;
 
-namespace ParentChildAccess.Data
+namespace ParentChildAccess2.Data
 {
     public class ApplicationDbContext : DbContext
     {

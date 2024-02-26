@@ -1,0 +1,6 @@
+@ParentChildAccess2_HostAddress = http://localhost:5225
+
+GET {{ParentChildAccess2_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
