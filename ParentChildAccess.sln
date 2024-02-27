@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NestedSetsAccess", "ParentChildAccess\NestedSetsAccess.csproj", "{D502DC10-4785-4EE5-9025-24A5683CF73A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NestedSetsAccess", "NestedSetsAccess\NestedSetsAccess.csproj", "{D502DC10-4785-4EE5-9025-24A5683CF73A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseBenchmarking", "DatabaseBenchmarking\DatabaseBenchmarking.csproj", "{634E7AC0-0C3D-466B-B282-119785E455B0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PathBasedAccess", "ParentChildAccess2\PathBasedAccess.csproj", "{D7237F5C-5935-4A1C-B9C3-864C410B5BF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PathBasedAccess", "PathBasedAccess\PathBasedAccess.csproj", "{D7237F5C-5935-4A1C-B9C3-864C410B5BF1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClosureTableAccess", "ParentChildAccess3\ClosureTableAccess.csproj", "{17475257-D05F-4558-B92D-FAD841605E82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClosureTableAccess", "ClosureTableAccess\ClosureTableAccess.csproj", "{17475257-D05F-4558-B92D-FAD841605E82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
