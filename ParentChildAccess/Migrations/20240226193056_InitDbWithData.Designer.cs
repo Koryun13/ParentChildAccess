@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ParentChildAccess.Data;
+using NestedSetsAccess.Data;
 
 #nullable disable
 
-namespace ParentChildAccess.Migrations
+namespace NestedSetsAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20240226193056_InitDbWithData")]
@@ -24,7 +24,7 @@ namespace ParentChildAccess.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ParentChildAccess.Model.Node", b =>
+            modelBuilder.Entity("NestedSetsAccess.Model.Node", b =>
                 {
                     b.Property<int>("NodeId")
                         .ValueGeneratedOnAdd()

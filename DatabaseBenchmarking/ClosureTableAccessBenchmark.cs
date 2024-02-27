@@ -1,16 +1,15 @@
 ﻿using BenchmarkDotNet.Attributes;
 using Microsoft.EntityFrameworkCore;
-using ParentChildAccess3.Data; // Update namespace to match your project
-using ParentChildAccess3.Model; 
 using System.Linq;
 using System.Threading.Tasks;
+using ClosureTableAccess.Data;
 
 namespace DatabaseBenchmarking
 {
     [MemoryDiagnoser]
     public class ClosureTableAccessBenchmark
     {
-        private ApplicationDbContext _context;
+        private ApplicationDbContext? _context;
 
         [GlobalSetup]
         public async Task Setup()
@@ -26,10 +25,10 @@ namespace DatabaseBenchmarking
         }
 
         [Benchmark]
-        public bool CheckAccessBenchmark()
+        public bool ClosureTableBenchmark()
         {
             // Query the NodeClosure table to check for access between two nodes
-            bool hasAccess = _context.NodeClosures
+            bool hasAccess = _context != null && _context.NodeClosures
                 .AsNoTracking()
                 .Any(nc => nc.AncestorId == 1 && nc.DescendantId == 20); // Example ancestor and descendant
 

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ParentChildAccess.Model;
+using NestedSetsAccess.Model;
 
-namespace ParentChildAccess.Data
+namespace NestedSetsAccess.Data
 {
     public class ApplicationDbContext : DbContext
     {
@@ -94,9 +94,9 @@ namespace ParentChildAccess.Data
 
 
 //using Microsoft.EntityFrameworkCore;
-//using ParentChildAccess.Model;
+//using NestedSetsAccess.Model;
 
-//namespace ParentChildAccess.Data
+//namespace NestedSetsAccess.Data
 //{
 //    public class ApplicationDbContext : DbContext
 //    {

@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ParentChildAccess.Data; // Update namespace to match your project
-using ParentChildAccess.Model; // Ensure correct namespace
+using NestedSetsAccess.Data;
+using NestedSetsAccess.Model;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ParentChildAccess3.Controllers
+namespace NestedSetsAccess.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -31,15 +31,11 @@ namespace ParentChildAccess3.Controllers
         [HttpPost]
         public async Task<ActionResult<Node>> CreateNode(Node node)
         {
-            // Implementation would need to calculate and set Left and Right values based on the desired position in the tree
-            // This is a placeholder implementation
             _context.Nodes.Add(node);
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetNode), new { id = node.NodeId }, node);
         }
 
-        // This method is no longer relevant in the same way for Nested Sets and has been removed.
-        // Implementing node addition in Nested Sets requires recalculating Left and Right values for affected nodes.
 
         [HttpGet("{nodeId}/access/{parentId}")]
         public ActionResult<bool> CheckAccess(int nodeId, int parentId)
@@ -57,6 +53,5 @@ namespace ParentChildAccess3.Controllers
             return hasAccess;
         }
 
-        // Additional methods as needed...
     }
 }

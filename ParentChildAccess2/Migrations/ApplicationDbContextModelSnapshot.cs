@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ParentChildAccess2.Data;
+using PathBasedAccess.Data;
 
 #nullable disable
 
-namespace ParentChildAccess2.Migrations
+namespace PathBasedAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -21,7 +21,7 @@ namespace ParentChildAccess2.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ParentChildAccess2.Model.Node", b =>
+            modelBuilder.Entity("PathBasedAccess.Model.Node", b =>
                 {
                     b.Property<int>("NodeId")
                         .ValueGeneratedOnAdd()

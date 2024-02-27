@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace ParentChildAccess2.Migrations
+namespace PathBasedAccess.Migrations
 {
     /// <inheritdoc />
     public partial class AddIndexerToDb : Migration

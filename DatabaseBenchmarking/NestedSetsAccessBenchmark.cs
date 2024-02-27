@@ -1,16 +1,15 @@
 ﻿using BenchmarkDotNet.Attributes;
 using Microsoft.EntityFrameworkCore;
-using ParentChildAccess.Data; // Ensure this matches your actual namespace
-using ParentChildAccess.Model; // Ensure this matches your actual namespace
 using System.Linq;
 using System.Threading.Tasks;
+using NestedSetsAccess.Data;
 
 namespace DatabaseBenchmarking
 {
     [MemoryDiagnoser]
-    public class NestedSetsAccessBenchmark // Renamed to reflect the focus on Nested Sets
+    public class NestedSetsAccessBenchmark 
     {
-        private ApplicationDbContext _context;
+        private ApplicationDbContext? _context;
 
         [GlobalSetup]
         public async Task Setup()
@@ -21,14 +20,13 @@ namespace DatabaseBenchmarking
 
             _context = new ApplicationDbContext(options);
 
-            // Ensure the database is created and seeded
             await _context.Database.EnsureCreatedAsync();
         }
 
         [Benchmark]
-        public bool CheckAccessBenchmark()
+        public bool NestedSetsBenchmark()
         {
-            return _context.Nodes.AsNoTracking().Any(n =>
+            return _context != null && _context.Nodes.AsNoTracking().Any(n =>
                 _context.Nodes.AsNoTracking().Any(a => a.NodeId == 1 && a.Left < n.Left && a.Right > n.Right) &&
                 n.NodeId == 20
             );

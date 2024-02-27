@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
-using ParentChildAccess3.Data;
-using ParentChildAccess3.Model;
+using ClosureTableAccess.Data;
+using ClosureTableAccess.Model;
 
-namespace ParentChildAccess3.Controllers
+namespace ClosureTableAccess.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -28,9 +28,7 @@ namespace ParentChildAccess3.Controllers
             return node;
         }
 
-        // Assuming this method is updated to correctly add nodes and their relationships
 
-        // Updated CheckAccess method to utilize NodeClosure table
         [HttpGet("{nodeId}/access/{parentId}")]
         public ActionResult<bool> CheckAccess(int nodeId, int parentId)
         {

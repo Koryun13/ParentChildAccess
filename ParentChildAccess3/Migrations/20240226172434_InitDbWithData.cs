@@ -4,7 +4,7 @@
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace ParentChildAccess3.Migrations
+namespace ClosureTableAccess.Migrations
 {
     /// <inheritdoc />
     public partial class InitDbWithData : Migration

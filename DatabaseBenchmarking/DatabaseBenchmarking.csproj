@@ -12,9 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ParentChildAccess2\ParentChildAccess2.csproj" />
-    <ProjectReference Include="..\ParentChildAccess3\ParentChildAccess3.csproj" />
-    <ProjectReference Include="..\ParentChildAccess\ParentChildAccess.csproj" />
+    <ProjectReference Include="..\ParentChildAccess2\PathBasedAccess.csproj" />
+    <ProjectReference Include="..\ParentChildAccess3\ClosureTableAccess.csproj" />
+    <ProjectReference Include="..\ParentChildAccess\NestedSetsAccess.csproj" />
   </ItemGroup>
 
 </Project>

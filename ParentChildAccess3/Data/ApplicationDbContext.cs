@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ParentChildAccess3.Model;
+using ClosureTableAccess.Model;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
 
-namespace ParentChildAccess3.Data
+namespace ClosureTableAccess.Data
 {
     public class ApplicationDbContext : DbContext
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ParentChildAccess2.Model;
+using PathBasedAccess.Model;
 
-namespace ParentChildAccess2.Data;
+namespace PathBasedAccess.Data;
 
 public class ApplicationDbContext : DbContext
 {
@@ -68,11 +68,9 @@ public class ApplicationDbContext : DbContext
         }
         else
         {
-            // If there's no parent, the node is a root node
             newNode.Path = newNode.NodeId.ToString();
         }
 
-        // Add the new node to the DbSet and save changes
         Nodes.Add(newNode);
         await SaveChangesAsync();
     }

@@ -1,4 +1,4 @@
-﻿namespace ParentChildAccess3.Model
+﻿namespace ClosureTableAccess.Model
 {
     public class Node
     {

@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ParentChildAccess3.Data;
+using ClosureTableAccess.Data;
 
 #nullable disable
 
-namespace ParentChildAccess3.Migrations
+namespace ClosureTableAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -21,7 +21,7 @@ namespace ParentChildAccess3.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ParentChildAccess3.Model.Node", b =>
+            modelBuilder.Entity("ClosureTableAccess.Model.Node", b =>
                 {
                     b.Property<int>("NodeId")
                         .ValueGeneratedOnAdd()
@@ -140,7 +140,7 @@ namespace ParentChildAccess3.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ParentChildAccess3.Model.NodeClosure", b =>
+            modelBuilder.Entity("ClosureTableAccess.Model.NodeClosure", b =>
                 {
                     b.Property<int>("AncestorId")
                         .HasColumnType("int");
@@ -606,15 +606,15 @@ namespace ParentChildAccess3.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ParentChildAccess3.Model.NodeClosure", b =>
+            modelBuilder.Entity("ClosureTableAccess.Model.NodeClosure", b =>
                 {
-                    b.HasOne("ParentChildAccess3.Model.Node", "Ancestor")
+                    b.HasOne("ClosureTableAccess.Model.Node", "Ancestor")
                         .WithMany()
                         .HasForeignKey("AncestorId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("ParentChildAccess3.Model.Node", "Descendant")
+                    b.HasOne("ClosureTableAccess.Model.Node", "Descendant")
                         .WithMany()
                         .HasForeignKey("DescendantId")
                         .OnDelete(DeleteBehavior.Restrict)

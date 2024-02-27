@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using ParentChildAccess2.Data;
+using PathBasedAccess.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

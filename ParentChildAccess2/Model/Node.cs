@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace ParentChildAccess2.Model
+namespace PathBasedAccess.Model
 {
     public class Node
     {

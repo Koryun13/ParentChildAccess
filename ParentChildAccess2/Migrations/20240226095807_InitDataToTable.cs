@@ -4,7 +4,7 @@
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace ParentChildAccess2.Migrations
+namespace PathBasedAccess.Migrations
 {
     /// <inheritdoc />
     public partial class InitDataToTable : Migration

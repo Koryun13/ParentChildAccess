@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
-using ParentChildAccess2.Data;
-using ParentChildAccess2.Model;
+using PathBasedAccess.Data;
+using PathBasedAccess.Model;
 
 namespace ParentChildAccess.Controllers
 {
@@ -28,7 +28,6 @@ namespace ParentChildAccess.Controllers
             return node;
         }
 
-        // Adapted to use the corrected AddNodeAsync method
         [HttpPost]
         public async Task<ActionResult<Node>> CreateNode(int nodeId, int? parentId)
         {
@@ -46,7 +45,6 @@ namespace ParentChildAccess.Controllers
             return CreatedAtAction(nameof(GetNode), new { id = newNode.NodeId }, newNode);
         }
 
-        // Updated CheckAccess method to utilize the materialized path
         [HttpGet("{nodeId}/access/{parentId}")]
         public async Task<ActionResult<bool>> CheckAccess(int nodeId, int parentId)
         {

@@ -1,16 +1,15 @@
 ﻿using BenchmarkDotNet.Attributes;
 using Microsoft.EntityFrameworkCore;
-using ParentChildAccess2.Data;
-using ParentChildAccess2.Model; // Ensure this is included if needed for accessing Node entities
 using System.Linq;
 using System.Threading.Tasks;
+using PathBasedAccess.Data;
 
 namespace DatabaseBenchmarking
 {
     [MemoryDiagnoser] 
     public class PathBasedAccessBenchmark
     {
-        private ApplicationDbContext _context;
+        private ApplicationDbContext? _context;
 
         [GlobalSetup]
         public async Task Setup()
@@ -20,26 +19,33 @@ namespace DatabaseBenchmarking
                 .Options;
 
             _context = new ApplicationDbContext(options);
+
+            await _context.Database.EnsureCreatedAsync();
+
         }
 
         [Benchmark]
-        public bool CheckAccessBenchmark()
+        public bool PathBasedBenchmark()
         {
 
             // Efficiently fetch only the Path property
-            string? childPath = _context.Nodes
-                .AsNoTracking()
-                .Where(n => n.NodeId == 20)
-                .Select(n => n.Path)
-                .FirstOrDefault();
+            if (_context != null)
+            {
+                string? childPath = _context.Nodes
+                    .AsNoTracking()
+                    .Where(n => n.NodeId == 20)
+                    .Select(n => n.Path)
+                    .FirstOrDefault();
 
-            string? parentPath = _context.Nodes
-                .AsNoTracking()
-                .Where(n => n.NodeId == 1)
-                .Select(n => n.Path)
-                .FirstOrDefault();
+                string? parentPath = _context.Nodes
+                    .AsNoTracking()
+                    .Where(n => n.NodeId == 1)
+                    .Select(n => n.Path)
+                    .FirstOrDefault();
 
-            return childPath.StartsWith(parentPath);
+                return childPath != null && parentPath != null && childPath.StartsWith(parentPath);
+            }
+            return false;
         }
 
 
