@@ -58,8 +58,8 @@ Running the benchmarks in Release mode without the debugger ensures that you get
 #### Used Hardware
 
 - **Operating System**: Windows 11
-- **CPU**: Intel Xeon E-2186M, 2.90GHz
-- **Cores**: 6 physical, 12 logical
+- **CPU**: 13th Gen Intel Core i7-1360P
+- **Cores**: 16 logical and 12 physical cores
 - **Benchmark Tool**: BenchmarkDotNet v0.13.12
 
 #### Performance Analysis
