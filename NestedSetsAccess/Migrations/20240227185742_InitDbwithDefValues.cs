@@ -7,7 +7,7 @@
 namespace NestedSetsAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class InitDbWithData : Migration
+    public partial class InitDbwithDefValues : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -32,26 +32,26 @@ namespace NestedSetsAccess.Migrations
                 columns: new[] { "NodeId", "Left", "Name", "Right" },
                 values: new object[,]
                 {
-                    { 1, 1, "Node 1", 2 },
-                    { 2, 3, "Node 2", 6 },
-                    { 3, 7, "Node 3", 10 },
-                    { 4, 11, "Node 4", 16 },
-                    { 5, 17, "Node 5", 22 },
-                    { 6, 23, "Node 6", 28 },
-                    { 7, 29, "Node 7", 34 },
-                    { 8, 35, "Node 8", 42 },
-                    { 9, 43, "Node 9", 50 },
-                    { 10, 51, "Node 10", 58 },
-                    { 11, 59, "Node 11", 66 },
-                    { 12, 67, "Node 12", 74 },
-                    { 13, 75, "Node 13", 82 },
-                    { 14, 83, "Node 14", 90 },
-                    { 15, 91, "Node 15", 98 },
-                    { 16, 99, "Node 16", 108 },
-                    { 17, 109, "Node 17", 118 },
-                    { 18, 119, "Node 18", 128 },
-                    { 19, 129, "Node 19", 138 },
-                    { 20, 139, "Node 20", 148 }
+                    { 1, 1, "Node 1", 40 },
+                    { 2, 2, "Node 2", 15 },
+                    { 3, 16, "Node 3", 39 },
+                    { 4, 3, "Node 4", 8 },
+                    { 5, 9, "Node 5", 14 },
+                    { 6, 17, "Node 6", 24 },
+                    { 7, 25, "Node 7", 38 },
+                    { 8, 4, "Node 8", 5 },
+                    { 9, 6, "Node 9", 7 },
+                    { 10, 10, "Node 10", 11 },
+                    { 11, 12, "Node 11", 13 },
+                    { 12, 18, "Node 12", 19 },
+                    { 13, 20, "Node 13", 21 },
+                    { 14, 26, "Node 14", 27 },
+                    { 15, 28, "Node 15", 37 },
+                    { 16, 29, "Node 16", 30 },
+                    { 17, 31, "Node 17", 32 },
+                    { 18, 22, "Node 18", 23 },
+                    { 19, 33, "Node 19", 34 },
+                    { 20, 35, "Node 20", 36 }
                 });
         }
 

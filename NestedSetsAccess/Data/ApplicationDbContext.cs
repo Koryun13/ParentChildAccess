@@ -20,47 +20,31 @@ namespace NestedSetsAccess.Data
 
         private void SeedNodesWithNestedSets(ModelBuilder modelBuilder)
         {
-            Dictionary<int, List<int>> nodeHierarchy = new Dictionary<int, List<int>>
+
+            Dictionary<int, (int Left, int Right)> nodePositions = new Dictionary<int, (int, int)> //This data is equivalent to tree data used in other access methods
             {
-                { 1, new List<int>{ 1 } },
-                { 2, new List<int>{ 1, 2 } },
-                { 3, new List<int>{ 1, 3 } },
-                { 4, new List<int>{ 1, 2, 4 } },
-                { 5, new List<int>{ 1, 2, 5 } },
-                { 6, new List<int>{ 1, 3, 6 } },
-                { 7, new List<int>{ 1, 3, 7 } },
-                { 8, new List<int>{ 1, 2, 4, 8 } },
-                { 9, new List<int>{ 1, 2, 4, 9 } },
-                { 10, new List<int>{ 1, 2, 5, 10 } },
-                { 11, new List<int>{ 1, 2, 5, 11 } },
-                { 12, new List<int>{ 1, 3, 6, 12 } },
-                { 13, new List<int>{ 1, 3, 6, 13 } },
-                { 14, new List<int>{ 1, 3, 7, 14 } },
-                { 15, new List<int>{ 1, 3, 7, 15 } },
-                { 16, new List<int>{ 1, 2, 4, 8, 16 } },
-                { 17, new List<int>{ 1, 2, 4, 8, 17 } },
-                { 18, new List<int>{ 1, 2, 4, 9, 18 } },
-                { 19, new List<int>{ 1, 2, 4, 9, 19 } },
-                { 20, new List<int>{ 1, 2, 5, 10, 20 } }
+                { 1, (1, 40) },
+                { 2, (2, 15) },
+                { 3, (16, 39) },
+                { 4, (3, 8) },
+                { 5, (9, 14) },
+                { 6, (17, 24) },
+                { 7, (25, 38) },
+                { 8, (4, 5) },
+                { 9, (6, 7) },
+                { 10, (10, 11) },
+                { 11, (12, 13) },
+                { 12, (18, 19) },
+                { 13, (20, 21) },
+                { 14, (26, 27) },
+                { 15, (28, 37) },
+                { 16, (29, 30) },
+                { 17, (31, 32) },
+                { 18, (22, 23) },
+                { 19, (33, 34) },
+                { 20, (35, 36) }
             };
 
-            int counter = 1;
-            Dictionary<int, (int Left, int Right)> nodePositions = new Dictionary<int, (int, int)>();
-
-            foreach (var kvp in nodeHierarchy)
-            {
-                int nodeId = kvp.Key;
-                var ancestors = kvp.Value;
-                int depth = ancestors.Count;
-
-                int left = counter;
-                counter += 1; // Increment for the node itself
-                counter += (depth - 1) * 2; // Simplified calculation for this example
-                int right = counter;
-                counter += 1; // Increment for the next node or subtree boundary
-
-                nodePositions[nodeId] = (left, right);
-            }
 
             foreach (var position in nodePositions)
             {

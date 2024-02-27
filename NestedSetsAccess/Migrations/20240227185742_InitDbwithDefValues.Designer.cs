@@ -11,8 +11,8 @@ using NestedSetsAccess.Data;
 namespace NestedSetsAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240226193056_InitDbWithData")]
-    partial class InitDbWithData
+    [Migration("20240227185742_InitDbwithDefValues")]
+    partial class InitDbwithDefValues
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -52,140 +52,140 @@ namespace NestedSetsAccess.Migrations
                             NodeId = 1,
                             Left = 1,
                             Name = "Node 1",
-                            Right = 2
+                            Right = 40
                         },
                         new
                         {
                             NodeId = 2,
-                            Left = 3,
+                            Left = 2,
                             Name = "Node 2",
-                            Right = 6
+                            Right = 15
                         },
                         new
                         {
                             NodeId = 3,
-                            Left = 7,
+                            Left = 16,
                             Name = "Node 3",
-                            Right = 10
+                            Right = 39
                         },
                         new
                         {
                             NodeId = 4,
-                            Left = 11,
+                            Left = 3,
                             Name = "Node 4",
-                            Right = 16
+                            Right = 8
                         },
                         new
                         {
                             NodeId = 5,
-                            Left = 17,
+                            Left = 9,
                             Name = "Node 5",
-                            Right = 22
+                            Right = 14
                         },
                         new
                         {
                             NodeId = 6,
-                            Left = 23,
+                            Left = 17,
                             Name = "Node 6",
-                            Right = 28
+                            Right = 24
                         },
                         new
                         {
                             NodeId = 7,
-                            Left = 29,
+                            Left = 25,
                             Name = "Node 7",
-                            Right = 34
+                            Right = 38
                         },
                         new
                         {
                             NodeId = 8,
-                            Left = 35,
+                            Left = 4,
                             Name = "Node 8",
-                            Right = 42
+                            Right = 5
                         },
                         new
                         {
                             NodeId = 9,
-                            Left = 43,
+                            Left = 6,
                             Name = "Node 9",
-                            Right = 50
+                            Right = 7
                         },
                         new
                         {
                             NodeId = 10,
-                            Left = 51,
+                            Left = 10,
                             Name = "Node 10",
-                            Right = 58
+                            Right = 11
                         },
                         new
                         {
                             NodeId = 11,
-                            Left = 59,
+                            Left = 12,
                             Name = "Node 11",
-                            Right = 66
+                            Right = 13
                         },
                         new
                         {
                             NodeId = 12,
-                            Left = 67,
+                            Left = 18,
                             Name = "Node 12",
-                            Right = 74
+                            Right = 19
                         },
                         new
                         {
                             NodeId = 13,
-                            Left = 75,
+                            Left = 20,
                             Name = "Node 13",
-                            Right = 82
+                            Right = 21
                         },
                         new
                         {
                             NodeId = 14,
-                            Left = 83,
+                            Left = 26,
                             Name = "Node 14",
-                            Right = 90
+                            Right = 27
                         },
                         new
                         {
                             NodeId = 15,
-                            Left = 91,
+                            Left = 28,
                             Name = "Node 15",
-                            Right = 98
+                            Right = 37
                         },
                         new
                         {
                             NodeId = 16,
-                            Left = 99,
+                            Left = 29,
                             Name = "Node 16",
-                            Right = 108
+                            Right = 30
                         },
                         new
                         {
                             NodeId = 17,
-                            Left = 109,
+                            Left = 31,
                             Name = "Node 17",
-                            Right = 118
+                            Right = 32
                         },
                         new
                         {
                             NodeId = 18,
-                            Left = 119,
+                            Left = 22,
                             Name = "Node 18",
-                            Right = 128
+                            Right = 23
                         },
                         new
                         {
                             NodeId = 19,
-                            Left = 129,
+                            Left = 33,
                             Name = "Node 19",
-                            Right = 138
+                            Right = 34
                         },
                         new
                         {
                             NodeId = 20,
-                            Left = 139,
+                            Left = 35,
                             Name = "Node 20",
-                            Right = 148
+                            Right = 36
                         });
                 });
 #pragma warning restore 612, 618
