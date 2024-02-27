@@ -64,15 +64,15 @@ Running the benchmarks in Release mode without the debugger ensures that you get
 
 #### Performance Analysis
 
-- **Nested Sets Benchmark**: Exhibited a mean execution time of 200.0 microseconds, with moderate memory allocation. This method balances speed and resource usage efficiently for hierarchical data management.
+- **Nested Sets Benchmark**: Exhibited a mean execution time of 126.9 microseconds, with moderate memory allocation. This method balances speed and resource usage efficiently for hierarchical data management.
 
 ![Benchmark](./images/Nested.png "Nested Sets Benchmark")
 
-- **Path-Based Benchmark**: Recorded a mean execution time of 380.8 microseconds, with higher memory allocation. This method's increased resource utilization suggests it may be less efficient for applications requiring rapid access or large-scale implementations.
+- **Path-Based Benchmark**: Recorded a mean execution time of 251.1 microseconds, with higher memory allocation. This method's increased resource utilization suggests it may be less efficient for applications requiring rapid access or large-scale implementations.
 
 ![Benchmark](./images/Path.png "Path-Based Benchmark")
 
-- **Closure Table Benchmark**: Demonstrated the best performance with the lowest mean execution time of 161.4 microseconds and minimal resource allocation. This approach is highly efficient, offering quick access and low memory usage, making it ideal for high-performance applications.
+- **Closure Table Benchmark**: Demonstrated the best performance with the lowest mean execution time of 104.1 microseconds and minimal resource allocation. This approach is highly efficient, offering quick access and low memory usage, making it ideal for high-performance applications.
 
 ![Benchmark](./images/Closure.png "Closure Table Benchmark")
 
