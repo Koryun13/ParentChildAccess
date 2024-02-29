@@ -28,22 +28,6 @@ namespace ParentChildAccess.Controllers
             return node;
         }
 
-        [HttpPost]
-        public async Task<ActionResult<Node>> CreateNode(int nodeId, int? parentId)
-        {
-            Node newNode;
-            try
-            {
-                await _context.AddNodeAsync(nodeId, parentId);
-                newNode = await _context.Nodes.FindAsync(nodeId);
-            }
-            catch (ArgumentException ex)
-            {
-                return NotFound(ex.Message);
-            }
-
-            return CreatedAtAction(nameof(GetNode), new { id = newNode.NodeId }, newNode);
-        }
 
         [HttpGet("{nodeId}/access/{parentId}")]
         public async Task<ActionResult<bool>> CheckAccess(int nodeId, int parentId)
