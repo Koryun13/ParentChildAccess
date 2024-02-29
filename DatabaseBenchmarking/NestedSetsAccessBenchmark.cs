@@ -28,7 +28,7 @@ namespace DatabaseBenchmarking
         {
             return _context != null && _context.Nodes.AsNoTracking().Any(n =>
                 _context.Nodes.AsNoTracking().Any(a => a.NodeId == 1 && a.Left < n.Left && a.Right > n.Right) &&
-                n.NodeId == 20
+                n.NodeId == 200
             );
         }
 

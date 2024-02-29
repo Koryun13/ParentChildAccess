@@ -30,7 +30,7 @@ namespace DatabaseBenchmarking
             // Query the NodeClosure table to check for access between two nodes
             bool hasAccess = _context != null && _context.NodeClosures
                 .AsNoTracking()
-                .Any(nc => nc.AncestorId == 1 && nc.DescendantId == 20); // Example ancestor and descendant
+                .Any(nc => nc.AncestorId == 1 && nc.DescendantId == 200); // Example ancestor and descendant
 
             return hasAccess;
         }
